@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DRY CSS</title>
+    <style>
+        body{
+            color: white;
+        }
+        div:nth-child(1n){
+            display: inline-block;
+            margin: 5px;
+        }
+        div:nth-child(1n+6){
+            width: 150px;
+            height: 150px;
+            line-height: 150px;
+        }
+        div:nth-child(-1n+5){
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+        }
+        .borderBlack{
+            border: 1px solid black;
+        }
+        .borderRed{
+            border: 1px solid red;
+        }
+        .rounded{
+            border-radius: 10px;
+        }
+        .bgOrange{
+            background-color: #FFa500;
+        }
+        .bgBlue{
+            background-color:#0088FF;
+        }
+        .alignCenter{
+            text-align: center;
+        }
+        .alignRight{
+            text-align: right !important;
+        }
+    </style>
+</head>
+<body>
+<h3 class="bgOrange alignCenter">DRY CSS</h3>
+<div class="borderBlack bgOrange alignCenter">Div 1</div>
+<div class="borderBlack bgOrange alignCenter">Div 2</div>
+<div class="borderRed rounded bgOrange alignCenter">Div 3</div>
+<div class="borderRed rounded bgOrange alignCenter">Div 4</div>
+<div class="borderBlack rounded bgBlue alignCenter">Div 5</div>
+<div class="borderBlack rounded bgBlue alignCenter">Div 6</div>
+<div class="borderBlack rounded bgBlue alignCenter">Div 7</div>
+<div class="alignRight bgBlue">Div 8</div>
+<div class="alignRight bgBlue">Div 9</div>
+<div class="alignRight bgBlue">Div 10</div>
+<h3 class="alignRight bgBlue">What can we fix?</h3>
+</body>
+</html>
+
+<!-- Previously looked like this -->
+<!-- Below is an example of improper use of DRY Practices, taking what you know, fix the CSS AND the HTML to follow DRY practices-->
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DRY CSS</title>
+    <style>
+        div:nth-child(1n+6){
+            width: 150px;
+            height: 150px;
+            display: inline-block;
+            margin: 5px;
+            background-color: #0088FF;
+            color: white;
+            line-height: 150px;
+            text-align: center;
+        }
+        div:nth-child(-1n+5){
+            margin: 5px;
+            display: inline-block;
+            height: 200px;
+            width: 200px;
+            background-color: #FFa500;
+            color: white;
+            line-height: 200px;
+            text-align: center;
+        }
+        div:nth-child(2), div:nth-child(3){
+            border: 1px solid black;
+        }
+        div:nth-child(4), div:nth-child(5){
+            border: 1px solid red;
+            border-radius: 10px;
+        }
+        div:nth-child(6), div:nth-child(7), div:nth-child(8){
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+        div:nth-child(1n+9){
+            text-align: right !important;
+        }
+        h3:first-child{
+            background-color: #FFa500;
+            color: white;
+            text-align: center;
+        }
+        h3:last-child{
+            color: white;
+            text-align: right;
+            background-color: #0088FF;
+        }
+    </style>
+</head>
+<body>
+<h3>DRY CSS</h3>
+<div>Div 1</div>
+<div>Div 2</div>
+<div>Div 3</div>
+<div>Div 4</div>
+<div>Div 5</div>
+<div>Div 6</div>
+<div>Div 7</div>
+<div>Div 8</div>
+<div>Div 9</div>
+<div>Div 10</div>
+<h3>What can we fix?</h3>
+</body>
+</html> -->
